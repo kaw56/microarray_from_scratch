@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage[a4paper]{geometry}
+\pagestyle{fancy}
+\lhead{\today}
+\chead{}
+\rhead{Perfect hit analysis}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+
+<<set-options, echo=FALSE, cache=FALSE>>=
+opts_chunk$set(echo = FALSE, fig.path = 'figure/', dev = 'pdf', fig.align='center', fig.show='hold')
+read_chunk('1_load.R')
+@
+\setcounter{secnumdepth}{0} %this gets rid of the section numbers - add it back if you want those
+\title{Title of analysis}
+\author{}
+\date{\today}
+\maketitle
+
+\section{Introduction}
+Give information about this analysis and where the data comes from and what has 
+been done to it before this analysis. Mention that the code for this analysis
+is embedded in the pdf?
+
+%% code that calls in the other scripts
+<<load>>=
+@
+
+<<ext_code2>>=
+read_chunk('2_clean.R')
+@
+
+<<clean>>=
+@
+
+<<ext_code3>>=
+read_chunk('3_func.R')
+@
+
+<<func>>=
+@
+
+<<ext_code4>>=
+read_chunk('4_do.R')
+@
+
+%% seperate out code in 4_do.R using knitr flags to call parts of the analysis for each graph/table
+\clearpage
+\section{Analysis}
+In this section go through your analysis
+
+\clearpage
+\section{Session information} 
+<<session_info>>=
+print(sessionInfo(), locale = FALSE)
+@
+
+\end{document}
