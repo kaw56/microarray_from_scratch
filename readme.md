@@ -10,4 +10,4 @@ Requirements
 ------------
 R
 
-list any libraries used here
+Requires: knitr
