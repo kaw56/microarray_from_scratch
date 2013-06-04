@@ -2,3 +2,6 @@
 
 ## @knitr load
 library(knitr)
+library(limma)
+
+# need to load the raw microarray files and the probes with their blast scores
