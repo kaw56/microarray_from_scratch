@@ -2,4 +2,9 @@
 
 ## @knitr clean
 
-bg_correct <- backgroundCorrect(raw_data, method = "normexp")
+library(affy)
+dat <- backgroundCorrect(raw_data, method = "normexp", offset=16)
+
+dat$E <- normalizeBetweenArrays(dat$E, method="quantile")
+
+boxplot(log(as.matrix(dat)),las=2,ylab="Log2(Intensity)")
