@@ -8,3 +8,6 @@ dat <- backgroundCorrect(raw_data, method = "normexp", offset=16)
 dat$E <- normalizeBetweenArrays(dat$E, method="quantile")
 
 boxplot(log(as.matrix(dat)),las=2,ylab="Log2(Intensity)")
+
+mva.pairs(as.matrix(raw_data)[,c(1:10)])
+mva.pairs(as.matrix(dat))
