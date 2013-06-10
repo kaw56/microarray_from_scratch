@@ -5,11 +5,10 @@
 # normalisation
 library(affy)
 dat <- backgroundCorrect(raw_data, method = "normexp", offset=16)
-dat$E <- normalizeBetweenArrays(dat$E, method="rma")
+dat$E <- normalizeBetweenArrays(dat$E, method="quantile")
 
 # average
-aver <- avereps(dat)
-
+dat_avg <- avereps(dat, ID=dat$genes$ProbeName)
 
 ## @knitr
 # exploratory graphs for eyeballing normalisation 
