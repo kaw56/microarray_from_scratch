@@ -5,12 +5,10 @@
 # normalisation
 library(affy)
 dat <- backgroundCorrect(raw_data, method = "normexp", offset=16)
+dat$E <- normalizeBetweenArrays(dat$E, method="rma")
 
-dat$E <- normalizeBetweenArrays(dat$E, method="quantile")
-
-# Selecting representative probes
-
-# Pull this from the jetset stuff I looked at before
+# average
+aver <- avereps(dat)
 
 
 ## @knitr
