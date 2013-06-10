@@ -6,6 +6,7 @@
 library(affy)
 dat <- backgroundCorrect(raw_data, method = "normexp", offset=16)
 dat$E <- normalizeBetweenArrays(dat$E, method="quantile")
+dat$E <- log2(dat$E)
 
 # average
 dat_avg <- avereps(dat, ID=dat$genes$ProbeName)

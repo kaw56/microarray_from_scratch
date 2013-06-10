@@ -7,4 +7,4 @@ library(limma)
 # need to load the raw microarray files and the probes with their blast scores
 targets <- readTargets("Data/targets.txt")
 
-raw_data <- read.maimages(targets, source= "agilent.mean", green.only=TRUE)
+raw_data <- read.maimages(targets, source= "agilent", green.only=TRUE)
