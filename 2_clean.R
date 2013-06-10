@@ -2,10 +2,16 @@
 
 ## @knitr clean
 
+# normalisation
 library(affy)
 dat <- backgroundCorrect(raw_data, method = "normexp", offset=16)
 
 dat$E <- normalizeBetweenArrays(dat$E, method="quantile")
+
+# Selecting representative probes
+
+# Pull this from the jetset stuff I looked at before
+
 
 ## @knitr
 # exploratory graphs for eyeballing normalisation 
